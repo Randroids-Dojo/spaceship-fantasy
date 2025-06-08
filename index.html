@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Spaceship Fantasy</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            background: #000;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            font-family: Arial, sans-serif;
+        }
+        #gameContainer {
+            position: relative;
+        }
+        #gameCanvas {
+            border: 2px solid #00ff00;
+            background: #111;
+        }
+        #gameUI {
+            position: absolute;
+            top: 10px;
+            left: 10px;
+            color: #00ff00;
+            font-size: 18px;
+            text-shadow: 0 0 5px #00ff00;
+        }
+        #gameOver {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            color: #ff0000;
+            font-size: 48px;
+            font-weight: bold;
+            text-align: center;
+            display: none;
+            text-shadow: 0 0 10px #ff0000;
+        }
+        #startScreen {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            color: #00ff00;
+            text-align: center;
+        }
+        #startScreen h1 {
+            font-size: 48px;
+            margin-bottom: 20px;
+            text-shadow: 0 0 10px #00ff00;
+        }
+        #startScreen button {
+            font-size: 24px;
+            padding: 10px 30px;
+            background: #00ff00;
+            color: #000;
+            border: none;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+        #startScreen button:hover {
+            background: #00cc00;
+            transform: scale(1.1);
+        }
+    </style>
+</head>
+<body>
+    <div id="gameContainer">
+        <canvas id="gameCanvas" width="800" height="600"></canvas>
+        <div id="gameUI">
+            <div>Score: <span id="score">0</span></div>
+            <div>High Score: <span id="highScore">0</span></div>
+            <div>Lives: <span id="lives">3</span></div>
+        </div>
+        <div id="gameOver">
+            GAME OVER<br>
+            <span style="font-size: 32px;">Score: <span id="finalScore">0</span></span><br>
+            <span id="newHighScore" style="font-size: 28px; color: #ffff00; display: none;">NEW HIGH SCORE!</span><br>
+            <span style="font-size: 24px;">Press SPACE to restart</span>
+        </div>
+        <div id="startScreen">
+            <h1>SPACESHIP FANTASY</h1>
+            <p>Use arrow keys to move, SPACE to shoot</p>
+            <button onclick="startGame()">START GAME</button>
+        </div>
+    </div>
+    <script src="audio.js"></script>
+    <script src="game.js"></script>
+</body>
+</html>
